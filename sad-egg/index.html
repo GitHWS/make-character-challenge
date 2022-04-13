@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .clear-fix {
+        display: block;
+        content: "";
+        clear: both;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:50px;
+        background-color: beige;
+      }
+
+      .body {
+        position: relative;
+        width: 400px;
+        height: 500px;
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        background: radial-gradient(circle at 50% 20%, rgb(254, 198, 143) 0%, rgb(251, 209, 126) 100%);
+        box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+        z-index: 100;
+        animation: bodyMove ease-in-out 3s infinite alternate;
+      }
+
+      .body_left{
+        animation: fadeOut 3s infinite;
+      }
+
+      .body_right{
+        animation: fadeOut 3s infinite 4s;
+      }
+
+      .eyes {
+        position: absolute;
+        top: 80px;
+        left: 50%;
+        animation: eyesMove 4s infinite;
+      }
+
+      .eye_style {
+        position: absolute;
+        width: 30px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #000;
+      }
+
+      .eye_circle1{
+        position: absolute;
+        top:2px;
+        left:8px;
+        width:15px;
+        height:15px;
+        background-color: #fff;
+        border-radius: 50%;
+      }
+
+      .eye_circle2{
+        position: absolute;
+        top:20px;
+        left:15px;
+        width:10px;
+        height:10px;
+        background-color: #fff;
+        border-radius: 50%;
+      }
+
+      .eye_left {
+        top: 80px;
+        left: 90px;
+      }
+
+
+      .eye_right {
+        top: 80px;
+        right: 90px;
+      }
+
+      .tear{
+        position: absolute;
+        width:40px;
+        height:10px;
+        border-radius: 50%;
+        background-color: rgb(89, 170, 251);
+      }
+
+      .tear-left{
+        position:absolute;
+        bottom:-5px;
+        left:10px;
+      }
+
+      .tear-right{
+        position:absolute;
+        bottom:-5px;
+        left:-20px;
+      }
+
+
+      .mouth {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -55%);
+        width: 200px;
+        height: 150px;
+        border: 30px solid rgb(255, 55, 55);
+        border-radius: 20px;
+        background-color: rgb(251, 83, 83);
+        box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
+        overflow: hidden;
+        animation: mouthMove ease-in-out 0.5s infinite alternate;
+      }
+
+      .tooth {
+        float: left;
+        width: 20px;
+        height: 20px;
+        border-radius: 0 0 50% 50%;
+        background-color: #fff;
+      }
+
+      .tooth-top {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .tooth-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transform: rotate(180deg);
+      }
+
+      .shadow{
+        position: absolute;
+        bottom:20%;
+        left:50%;
+        transform: translateX(-50%);
+        width:300px;
+        height:20px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,0.2) 100%);
+        filter: blur(10px);
+        animation: shadow 3s infinite alternate;
+      }
+
+      .query{
+        font-size:100px;
+        color:red;
+        position: absolute;
+        animation: queryRotate 1s infinite alternate;
+      }
+
+      .query:nth-child(1){
+        top:15%;
+        left:43%;
+        transform: rotate(-30deg);
+      }
+
+      .query:nth-child(2){
+        top:10%;
+        left:50%;
+        transform: translateX(-50%) rotate(0);
+      }
+
+      .query:nth-child(3){
+        top:15%;
+        left:55%;
+        transform: rotate(30deg);
+      }
+
+      /* animation */
+
+      @keyframes bodyMove {
+        0% {
+          top: 0%;
+        }
+        100% {
+          top: 1%;
+        }
+      }
+
+      @keyframes eyesMove {
+        0% {
+          left: 50%;
+        }
+        25% {
+          left: 45%;
+        }
+        50% {
+          left: 55%;
+        }
+        100% {
+          left: 50%;
+        }
+      }
+
+      @keyframes mouthMove {
+        0% {
+          height: 150px;
+        }
+        100% {
+          height: 200px;
+        }
+      }
+
+      @keyframes shadow {
+        0%{
+          transform: translateX(-50%) scale(1);
+        }
+        100%{
+          transform: translateX(-50%) scale(1.5);
+        }  
+      }
+
+      @keyframes fadeOut {
+        0%{
+          top:0;
+          opacity: 1;
+        }
+        100%{
+          top:-300px;
+          opacity: 0;
+        }
+      }
+
+      @keyframes queryRotate {
+        0%{
+          transform: rotate(30deg);
+        }
+        100%{
+          transform: rotate(-30deg);
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1 class="query">?</h1>
+    <h1 class="query">?</h1>
+    <h1 class="query">?</h1>
+    <!-- .body_left start -->
+    <div class="body body_left"></div>
+    <!-- .body_left end -->
+    
+    
+    <!-- .body start -->
+    <div class="body">
+
+      <!-- .eyes start -->
+      <div class="eyes">
+        <div class="eye_style eye_left">
+          <div class="eye_circle1"></div>
+          <div class="eye_circle2"></div>
+          <div class="tear tear-left"></div>
+        </div>
+        <div class="eye_style eye_right">
+          <div class="eye_circle1"></div>
+          <div class="eye_circle2"></div>
+          <div class="tear tear-right"></div>
+        </div>
+      </div>
+      <!-- .eyes end -->
+
+      <!-- .mouth/.tooth start -->
+      <div class="mouth">
+        <div class="tooth-top clear-fix">
+          <div class="tooth"></div>
+          <div class="tooth"></div>
+          <div class="tooth"></div>
+          <div class="tooth"></div>
+          <div class="tooth"></div>
+          <div class="tooth"></div>
+          <div class="tooth"></div>
+        </div>
+
+        <div class="tooth-bottom clear-fix">
+          <div class="tooth"></div>
+          <div class="tooth"></div>
+          <div class="tooth"></div>
+          <div class="tooth"></div>
+          <div class="tooth"></div>
+          <div class="tooth"></div>
+          <div class="tooth"></div>
+        </div>
+      </div>
+      <!-- .mouth/.tooth end -->
+    </div>
+    <!-- .body end -->
+    <div class="shadow"></div>
+    </div>
+    <!-- .body_right start -->
+    <div class="body body_right"></div>
+    <!-- .body_right end -->
+  </body>
+</html>
